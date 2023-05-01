@@ -3,8 +3,8 @@
 ### Process:
 
 <ol>
-  <liThis one put me thru the ringer and I mean that.</li>
-  <li>Originally, I had thought that we were creating an API, so when I found out that I had spent my entire Thursday building the wrong project, I almost ran into a wall.<li>
+  <li>This one put me thru the ringer and I mean that.</li>
+  <li>Originally, I had thought that we were creating an API, so when I found out that I had spent my entire Thursday building the wrong project, I almost ran into a wall.</li>
   <li>I did put this project down and return to it at the end right before starting another project's layout, but my solve was simple.</li>
   <li>All I did, was stick the body of my index.html file into the body of the profile.ejs and boom--now we're cooking.</li>
    <li>All of the code for retrieving from my animal database was there.  The user would enter an initial and it would place three animals from my database with the names that started with that initial into the DOM.</li>  
