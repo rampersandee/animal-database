@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+    <title>ANiMALS</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  * {
+      border: 1px dashed rgb(177, 204, 123);
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #02140f;
+      background: linear-gradient(to bottom, #02140f, #434108);
+      padding: .62rem;
+      list-style: none;
+  }
+
+  body {
+      color: rgb(177, 204, 123);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  h1 {
+      text-align: center;
+      margin: 0px;
+      margin-top: 50px;
+      font-size: xxx-large;
+  }
+
+  h2,
+  h3,
+  h4 {
+      margin: 0px;
+  }
+
+  p {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+  }
+
+  input[type="text"] {
+      display: block;
+      align-self: center;
+      margin: 2px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 70%;
+      text-align: center;
+      color: rgb(177, 204, 123);
+  }
+
+  section {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      flex-wrap: wrap;
+      width: 100%;
+  }
+
+  button {
+      display: block;
+      margin: 2px;
+      padding: 10px;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+  }
+
+  .hidden {
+      display: none;
+  }
+
+  #animal-storage {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 80%;
+      margin-top: 50px;
+  }
+</style>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>ZOO TIME</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> User Account Info</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                    </p>
+
+                    <!-- <a href="/unlink/local" class="btn btn-default">Unlink</a> -->
+                <% } else { %>
+                    <!-- <a href="/connect/local" class="btn btn-default">Connect Local</a> -->
+                <% } %>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>Messages</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].name %></span>
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].thumbUp %></span>
+              <span><i class="fa fa-thumbs-up" aria-hidden="true" data-id="<%= messages[i]._id %>"></i></span>
+              <span><i class="fa fa-thumbs-down" aria-hidden="true" data-id="<%= messages[i]._id %>"></i></span>
+              <span><i class="fa fa-trash" aria-hidden="true" data-id="<%= messages[i]._id %>"></i></span>
+            </li>
+          <% } %>
+          </ul>
+
+          <h3>Animal Talk</h3>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="name">
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+        <section id="words">
+            <h1>Animals</h1>
+            <h2>Where they at?</h2>
+            <h3>What they is?</h3>
+            <h4>What they do?</h4>
+            <input id = "user-input" type="text" minlength="1" maxlength="1" pattern="[a-zA-Z]"
+                placeholder="Please enter a letter from A to Z">
+            <button id="user-button" type="submit">SEARCH</button>
+      
+            <form>
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="message" name="msg">
+                <button type="submit">Submit</button>
+            </form>
+      
+        </section>
+        <section id="animal-results" class="hidden">
+        </section>
+</div> 
+<script src="main.js"></script>
+</body>
+

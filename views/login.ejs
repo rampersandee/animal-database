@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <title>ANiMALS</title>
+    <style>
+        * {
+            border: 1px dashed rgb(177, 204, 123);
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #02140f;
+            background: linear-gradient(to bottom, #02140f, #434108);
+            padding: .62rem;
+        }
+
+        body {
+            color: rgb(177, 204, 123);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0px;
+            margin-top: 50px;
+            font-size: xxx-large;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            display: block;
+            align-self: center;
+            margin: 2px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 70%;
+            text-align: center;
+            color: rgb(177, 204, 123);
+        }
+
+        button {
+            display: block;
+            margin: 2px;
+            padding: 10px;
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/login" method="post">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <hr>
+
+    <p>Need an account? <a href="/signup">Signup</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+
+</div>
+</div>
+</body>
+</html>
